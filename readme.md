@@ -99,7 +99,6 @@ const trailSchema = new mongoose.Schema({
   length: { type: Number, required: true },
   difficulty: { type: Number, required: true },
   img: { type: String, required: true },
-  completed: Boolean,
 });
 ```
 
