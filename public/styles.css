@@ -1,16 +1,23 @@
-body {
-    color: rgb(40, 39, 39);
-    width: 80%;
-    /* font-family: 'Corinthia', cursive; */
-    font-family: 'Raleway', sans-serif;
-    margin:auto;
-}
 
 header {
     display: flex;
     background-color: white;
     max-width: 1000px;
     justify-content: space-between;
+}
+
+body {
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    width: 80%;
+    color: rgb(40, 39, 39);
+    font-family: 'Raleway', sans-serif;
+    margin:auto;
+    background-image: url("images/sid-saxena-rC4x-ow5xsA-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 /* Style the navigation menu */
@@ -55,25 +62,19 @@ header {
 
 /* Style the active link (or home/logo) */
 .active {
-    background-color: #0b6c15;
+    background-color: #ffffff;
     color: white;
     max-height: 48px;
 }
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px;
-    width: 100%;
-    background-image: url("images/sid-saxena-rC4x-ow5xsA-unsplash.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
 
-
+#navLogo {
+    max-height: 30px;
+    padding: 0;
 }
 
 #siteName {
     max-height: 48px;
     padding: 0;
 }
+

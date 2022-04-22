@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
-const hikesController = require("./controllers/hikes.js");
+const hikesController = require("./controllers/hikes");
 const app = express();
 require("dotenv").config();
 
