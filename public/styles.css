@@ -7,18 +7,47 @@ header {
 }
 
 body {
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px;
-    width: 80%;
     color: rgb(40, 39, 39);
+    width: 80%;
     font-family: 'Raleway', sans-serif;
     margin:auto;
-    background-image: url("images/sid-saxena-rC4x-ow5xsA-unsplash.jpg");
+}
+
+main {
+    max-width: 1000px;
+    max-height: 768px;
+    width: 100%;
+    margin: auto;
+    background-image: url("images/hiking_background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
 }
+
+#splash {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo {
+    height: 60%;
+    padding-top: 150px;
+}
+
+.logo img {
+    max-width: 275px;
+}
+
+.search {
+    height: 40%;
+    width: 50%;
+    align-content: top;
+}
+
 
 /* Style the navigation menu */
 .topnav {
@@ -62,7 +91,7 @@ body {
 
 /* Style the active link (or home/logo) */
 .active {
-    background-color: #ffffff;
+    background-color: #2e4c0f;
     color: white;
     max-height: 48px;
 }
