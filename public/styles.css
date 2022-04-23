@@ -26,16 +26,17 @@ main {
 
 #splash {
     display: flex;
+    flex-wrap: wrap;
     color: white;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
 .logo {
-    height: 60%;
     padding-top: 150px;
+    padding-bottom: 150px;
 }
 
 .logo img {
@@ -43,28 +44,32 @@ main {
 }
 
 .search {
-    height: 40%;
-    width: 50%;
-    align-content: top;
+    /* padding-top: 150px; */
+    width: 40%;
+}
+
+select, button {
+    font-family: 'Raleway', sans-serif;
+
 }
 
 
 /* Style the navigation menu */
-.topnav {
+#topnav {
     overflow: hidden;
     background-color: #333;
     position: relative;
 }
 
 /* Hide the links inside the navigation menu (except for logo/home) */
-.topnav #myLinks {
+#topnav #myLinks {
     display: none;
     margin-right: 50px;
 
 }
 
 /* Style navigation menu links */
-.topnav a {
+#topnav a {
     float: left;
     color: white;
     text-decoration: none;
@@ -74,7 +79,7 @@ main {
 }
 
 /* Style the hamburger menu */
-.topnav a.icon {
+#topnav a.icon {
     background: black;
     display: block;
     position: absolute;
@@ -84,7 +89,7 @@ main {
 }
 
 /* Add a grey background color on mouse-over */
-.topnav a:hover {
+#topnav a:hover {
     background-color: #ddd;
     color: black;
 }
@@ -94,6 +99,12 @@ main {
     background-color: #2e4c0f;
     color: white;
     max-height: 48px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 
@@ -106,4 +117,57 @@ main {
     max-height: 48px;
     padding: 0;
 }
+
+/******************************************
+/* search results
+/******************************************/
+
+h1 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.results {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#trails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+}
+
+#trailBoxes {
+    display: grid;
+    width: fit-content;
+    border: 1px solid #696962;
+    margin: 10px;
+    background-color: white;
+    justify-items: center;
+    align-items: center;
+
+}
+
+#trailBoxes h4, h5 {
+    color: rgb(40, 39, 39);
+    font-size: 1.75vh;
+    margin: 2px;
+}
+
+#trailImg img {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
 

@@ -225,7 +225,7 @@ module.exports = [
       "Trail passes through old-growth forest to reach Green Lake. Along the trail, view Ranger Falls.",
     length: "10.8 mi/17.4 km roundtrip",
     time: "4 hrs",
-    image: "/static/images/.jpg",
+    image: "/static/images/green-lake.jpg",
     imageDescription:
       "Submerged logs seen clearly through the green water of Green Lake.",
   },

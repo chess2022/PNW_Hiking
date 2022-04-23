@@ -11,7 +11,7 @@ app.use("/static", express.static("public"));
 app.use(methodOverride ("_method"));
 
 // Routes / Controllers
-app.use("/hikes", hikesController)
+app.use("/trails", hikesController)
 
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
