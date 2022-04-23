@@ -10,6 +10,7 @@ module.exports = [
     image: "/static/images/trail-of-the-shadows.jpg",
     imageDescription:
       "Visitors follow the trail up to a bridge with devil's club and skunk cabbage alongside.",
+    map: "/static/images/trail_maps/2016-Longmire_Cougar-Rock-Area-Trails_access.jpg",
   },
   {
     name: "Twin Firs Loop Trail",
@@ -22,6 +23,7 @@ module.exports = [
     image: "/static/images/twin-firs-loop.jpg",
     imageDescription:
       "This commonly-seen species of flat-backed millipede (Harpaphe haydeniana) is about 1.5 to 2 inches long, and feeds on plants, including rotting vegetation.",
+    map: "/static/images/trail_maps/2016-Longmire_Cougar-Rock-Area-Trails_access.jpg",
   },
   {
     name: "Rampart Ridge Trail",
@@ -35,6 +37,7 @@ module.exports = [
     image: "/static/images/rampart-ridge-trail.jpg",
     imageDescription:
       "View Mount Rainier from the top of the Rampart Ridge Trail.",
+    map: "/static/images/trail_maps/2016-Longmire_Cougar-Rock-Area-Trails_access.jpg",
   },
   {
     name: "Nisqually Vista Trail",
@@ -47,6 +50,7 @@ module.exports = [
     image: "/static/images/nisqually-vista-trail.jpg",
     imageDescription:
       "View colorful wildflower meadows along the Nisqually Vista Trail. Please stay on the trail to protect these delicate plants.",
+    map: "/static/images/trail_maps/2019-Paradise-Area-Trails_508.jpg",
   },
   {
     name: "Bench & Snow Lakes Trail",
@@ -59,6 +63,7 @@ module.exports = [
     image: "/static/images/snow-lakes-trail.jpeg",
     imageDescription:
       "Camp on the shores of Snow Lake tucked against the rocky slopes of the Tatoosh Range.",
+    map: "/static/images/trail_maps/2019-Paradise-Area-Trails_508.jpg",
   },
   {
     name: "Skyline Trail to Myrtle Falls",
@@ -71,6 +76,7 @@ module.exports = [
     image: "/static/images/skyline-trail.jpeg",
     imageDescription:
       "Black bears can be seen feeding in the Paradise Meadows, sometimes very close to the trail. Make sure to give them plenty of space!",
+    map: "/static/images/trail_maps/2019-Paradise-Area-Trails_508.jpg",
   },
   {
     name: "Hot Springs Nature Trail",
@@ -83,6 +89,7 @@ module.exports = [
     image: "/static/images/hot-springs-nature-trail.jpeg",
     imageDescription:
       "Stay on trails and do not drink the heated water - it is not safe for human consumption.",
+    map: "/static/images/trail_maps/2019-Ohanapecosh-Area-Trails_508.jpg",
   },
   {
     name: "Silver Falls Trail",
@@ -95,6 +102,7 @@ module.exports = [
     image: "/static/images/silver-falls-trail.jpg",
     imageDescription:
       "As viewed from the trail's footbridge, the Ohanapecosh River flows through a moss-lined gorge below Silver Falls.",
+    map: "/static/images/trail_maps/2019-Ohanapecosh-Area-Trails_508.jpg",
   },
   {
     name: "Grove of the Patriarchs Trail",
@@ -107,6 +115,7 @@ module.exports = [
     image: "/static/images/grove-of-the-patriarchs.jpg",
     imageDescription:
       "A person walks across the suspension bridge over the Ohanapecosh River to the Grove of the Patriarchs.",
+    map: "/static/images/trail_maps/2019-Ohanapecosh-Area-Trails_508.jpg",
   },
   {
     name: "Box Canyon Loop Trail",
@@ -119,6 +128,7 @@ module.exports = [
     image: "/static/images/box-canyon.jpeg",
     imageDescription:
       "Gaze down 180 feet below at the Muddy Fork of the Cowlitz River rushing through Box Canyon.",
+    map: "/static/images/trail_maps/2019-Ohanapecosh-Area-Trails_508.jpg",
   },
   {
     name: "Shadow Lakes Trail",
@@ -131,6 +141,7 @@ module.exports = [
     image: "/static/images/shadow-lakes.jpeg",
     imageDescription:
       "The best times to visit this trail are April through October.",
+    map: "/static/images/trail_maps/2016-Sunrise-Area-Trails_access.jpg",
   },
   {
     name: "Dege Peak via Sourdough Ridge Trail",
@@ -143,6 +154,7 @@ module.exports = [
     image: "/static/images/sourdough-ridge.jpg",
     imageDescription:
       "Sourdough Ridge Trail heading east with views of the Cascade Range.",
+    map: "/static/images/trail_maps/2016-Sunrise-Area-Trails_access.jpg",
   },
   {
     name: "Naches Peak Loop Trail",
@@ -154,6 +166,7 @@ module.exports = [
     time: "2 hrs",
     image: "/static/images/naches-peak-loop.jpg",
     imageDescription: "Yakima Peak rises to the northwest of Tipsoo Lake.",
+    map: "/static/images/trail_maps/2016-Sunrise-Area-Trails_access.jpg",
   },
   {
     name: "Glacier Basin Trail",
@@ -166,6 +179,7 @@ module.exports = [
     image: "/static/images/glacier-basin-trail.jpeg",
     imageDescription:
       "The best times to visit this trail are June through October.",
+    map: "/static/images/trail_maps/2016-Sunrise-Area-Trails_access.jpg",
   },
   {
     name: "Carbon River Rain Forest Nature Trail",
@@ -178,6 +192,7 @@ module.exports = [
     image: "/static/images/carbon-river-rainforest.jpeg",
     imageDescription:
       "Explore temperate rainforest along the Carbon River Rainforest Nature Trail.",
+    map: "/static/images/trail_maps/2020-Carbon-River_Mowich-Area-Trails_508.jpg",
   },
   {
     name: "Old Mine Trail",
@@ -190,6 +205,7 @@ module.exports = [
     time: "2 hrs",
     image: "/static/images/old-mine-trail.jpeg",
     imageDescription: "A hiker looks into the entrance of a gated mine.",
+    map: "/static/images/trail_maps/2020-Carbon-River_Mowich-Area-Trails_508.jpg",
   },
   {
     name: "Chenuis Falls Trail",
@@ -203,6 +219,7 @@ module.exports = [
     image: "/static/images/chenuis-fall-trail.jpg",
     imageDescription:
       "Hiker using a log footbridge to cross over the Carbon River on the Chenuis Falls trail.",
+    map: "/static/images/trail_maps/2020-Carbon-River_Mowich-Area-Trails_508.jpg",
   },
   {
     name: "Tolmie Peak Trail",
@@ -215,6 +232,7 @@ module.exports = [
     image: "/static/images/tolmie-peak.jpg",
     imageDescription:
       "The historic Tolmie Peak fire lookout weathers the elements atop its namesake peak in foggy weather.",
+    map: "/static/images/trail_maps/2020-Carbon-River_Mowich-Area-Trails_508.jpg",
   },
   {
     name: "Green Lake Trail",
@@ -228,5 +246,6 @@ module.exports = [
     image: "/static/images/green-lake.jpg",
     imageDescription:
       "Submerged logs seen clearly through the green water of Green Lake.",
+    map: "/static/images/trail_maps/2020-Carbon-River_Mowich-Area-Trails_508.jpg",
   },
 ];

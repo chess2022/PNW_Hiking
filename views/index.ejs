@@ -24,14 +24,15 @@
         </div>
     </main>
         <h1> <span class="output"></span></h1>
-    <section class="results">
+    <div class="results">
             <div class="list" id="trails">
                 <% trails.forEach(trail => { %>
                 <a id="trailBoxes" href="/hikes/<%=trail._id; %>"> 
                     <div id="trailImg"><img src="<%=trail.image; %>"></div>
-                    <h4><%= trail.name %></h4>
+                    <div id="trailName"><h4><%= trail.name %></h4></div>
                 </a>
                  <% }) %>
             </div>  
-    </section>
+    </div>
 </body>
+</html>

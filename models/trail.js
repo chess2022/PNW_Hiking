@@ -8,7 +8,8 @@ const trailSchema = new mongoose.Schema({
     length: { type: String, required: true },
     time: { type: String, required: true },
     image: { type: String, required: false },
-    imageDescription: { type: String, required: false }
+    imageDescription: { type: String, required: false },
+    map: {type: String, required: false}
 });
 
 const Trail = mongoose.model("Trail", trailSchema);

@@ -30,3 +30,8 @@ function getOption() {
     output = selectElement.value;
     document.querySelector('.output').textContent = output; 
 } 
+
+
+// function myFunction(save) {
+//   save.classList.toggle("fa-solid fa-heart");
+// }

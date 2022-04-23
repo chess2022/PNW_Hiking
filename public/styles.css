@@ -10,11 +10,12 @@ body {
     color: rgb(40, 39, 39);
     width: 80%;
     font-family: 'Raleway', sans-serif;
-    margin:auto;
+    margin: auto;
+    max-width: 1000px;
+    
 }
 
 main {
-    max-width: 1000px;
     max-height: 768px;
     width: 100%;
     margin: auto;
@@ -132,6 +133,7 @@ h1 {
     margin: auto;
     display: flex;
     justify-content: center;
+    /* width: 80%; */
 }
 
 #trails {
@@ -140,6 +142,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     max-width: 1000px;
+    width: 100%;
 }
 
 #trailBoxes {
@@ -154,9 +157,11 @@ h1 {
 }
 
 #trailBoxes h4, h5 {
-    color: rgb(40, 39, 39);
+    color: white;
     font-size: 1.75vh;
     margin: 2px;
+    text-align: center;
+    padding: 5px;
 }
 
 #trailImg img {
@@ -168,6 +173,67 @@ h1 {
 
 a {
     text-decoration: none;
+}
+
+#trailName {
+    width: 100%;
+    height: 50px;
+    background-color: #2e4c0f;
+}
+
+/**************************************/
+/* Trail Detail Page */
+/**************************************/
+
+.trailDetail {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 60% 40%;
+    grid-auto-flow: row;
+    margin: auto;
+    margin-top: 20px;
+    gap: 20px;
+    background-color: white;
+    max-width: 1000px;
+    width: 90%;
+}
+
+.info {
+
+}
+
+.map {
+    max-height: 350px;
+}
+.map img {
+    object-fit: cover;
+    width: 100%;
+    height: 350px;
+}
+
+.largeImg {
+    max-height: 250px;
+}
+
+.largeImg h5 {
+    color:rgb(40, 39, 39);
+    text-align: left;
+}
+
+.largeImg img {
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+}
+
+.directions {
+    background-color: #2e4c0f;
+    color: white;
+    padding: 20px;
+}
+
+.directions p {
+    /* padding: 20px; */
 }
 
 

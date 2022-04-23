@@ -21,7 +21,12 @@ trailRouter.get("/", (req, res) => {
     });
 });
 
-// 
+// Show route - trail detail
+trailRouter.get("/:id", (req, res) => {
+    Trail.findById(req.params.id, (err, trail) => {
+      res.render("details.ejs", { trail });
+    });
+});
 
 
 
