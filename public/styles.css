@@ -322,3 +322,68 @@ a {
 /****************************/
 /* END MODAL */
 /****************************/
+
+/*****************************/
+/* Login & New Account Pages*/
+/*****************************/
+
+.loginForm {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+
+}
+
+.loginImage {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+
+}
+
+#loginImg {
+    object-fit: cover;
+    width: 100%;
+}
+
+.loginFields {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+
+}
+
+fieldset {
+    display: grid;
+    border: none;
+    padding: 20px;
+
+}
+
+fieldset > label {
+      text-align: left;
+}
+
+.submitLogin {
+    background-color: rgb(9, 68, 8);
+    color: white;
+    border: 1px solid thin;
+    padding: 10px 10px;
+    border-radius: 5px;
+    width: 100px;
+    }
+
+label {
+    clear: both;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.inputBox {
+    width: 100%;
+    /* float: right; */
+}
+

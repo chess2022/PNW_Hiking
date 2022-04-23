@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/header.ejs") %>
+    <div class="loginForm">
+        <div class="loginImage">
+            <img id="loginImg" src="/static/images/AdobeStock_370848936.jpeg">
+        </div>
+        <div class="loginFields">
+            <h2>Nice to meet you! </h2>
+            <form action="/user/login" method="post">
+                <fieldset>
+                    <legend>Create a login to continue</legend>
+                    <label>Username <br><input class="inputBox" type="text" name="username" required></label><br>
+                    <label>Password <br><input class="inputBox" type="text" name="password" required></label><br>
+                    <input class="submitLogin" type="submit" value="Sign Up">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+            
+</body>
+</html>

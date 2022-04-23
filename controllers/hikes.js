@@ -1,8 +1,8 @@
 const express = require("express");
 const Trail = require("../models/trail");
-const User = require("../models/user");
 const Saved = require("../models/userSaved")
 const trailRouter = express.Router();
+
 
 
 // Seed
