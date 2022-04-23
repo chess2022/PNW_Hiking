@@ -10,10 +10,10 @@
             <p><%= trail.description %> </p>
         </div>
         <div class="map">
-            <img src="<%= trail.map %>">
+            <img id="map" src="<%= trail.map %>">
         </div>
         <div class="largeImg">
-            <img src="<%=trail.image%>">
+            <img id="trailImg" src="<%=trail.image%>">
             <h5><%= trail.imageDescription %> </h5>
         </div>
         <div class="directions">
@@ -23,5 +23,19 @@
         </div>
 
     </div>
+            <!-- The Modal -->
+            <div id="mapModal" class="modal1">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="mapLrg" src="<%= trail.map %>"></div>
+                <!-- The Modal -->
+            <div id="imgModal" class="modal2">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="trailImgLrg" src="<%= trail.image %>">
+            <div id="caption"><%= trail.imageDescription %></div></div>
+
 </body>
 </html>
