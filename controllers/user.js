@@ -2,6 +2,9 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
 const Saved = require("../models/userSaved");
+const Trail = require("../models/trail");
+
+
 
 
 const router = express.Router();
@@ -23,6 +26,7 @@ router.post("/signup", async (req, res) => {
     // log if there is an error
     if (err) console.log(err);
     // redirect to login
+    // req.flash("success_msg", "You are registered and can now log in");
     res.redirect("/user/login");
   });
 });
@@ -47,7 +51,7 @@ router.post("/login", (req, res) => {
     req.session.loggedIn = true;
     req.session.username = username;
     // redirect to home - home checks for login to see dashboard
-    res.redirect("/");
+    res.redirect("/user/trails");
   });
 });
 
@@ -57,5 +61,25 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
   });
 });
+
+// Index route for logged in users - GET
+router.get("/trails", (req, res) => {
+    Trail.find({}, (err, allTrails) => {
+      res.render("index2.ejs", { trails: allTrails });
+    });
+});
+
+router.put("/:id", (req, res) => {
+  let savedTrail = { ...Trail[req.params.id] };
+  savedTrail.username = User[req.params.username];
+  Trail[req.params.id] = savedTrail;
+  res.redirect("/user/dashboard/");
+});
+
+
+
+
+
+
 
 module.exports = router;

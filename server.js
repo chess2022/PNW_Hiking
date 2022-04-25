@@ -7,6 +7,9 @@ const morgan = require("morgan");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")
 require("dotenv").config();
+const flash = require("connect-flash");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser")
 
 // middleware
 app.use(morgan('tiny')); // dev logging for routes
@@ -14,6 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/static", express.static("public"));
 app.use(methodOverride ("_method"));
 app.use(express.urlencoded({extended: true})); // parses url encoded bodies
+app.use(flash());
+app.use(cookieParser());
 
 // Session middleware
 app.use(

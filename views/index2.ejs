@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<%- include("partials/head.ejs") %>
+<body>
+    <main>
+    <%- include("partials/user_header.ejs") %>
+
+        <div id="splash">
+        <div class="logo"><img src="/static/images/hiking-logo-white.png"></div>
+        <div class="search">
+            <h3>Looking for easy and enjoyable trails the whole family can experience? Consider the trails of Mount Rainier National Park.</h3>
+            <div id="locationSearch">
+            <select name="locations" id="locations">
+                <option value="choose">Choose an Area</option>
+                <option value="Longmire Area">Longmire Area</option>
+                <option value="Paradise Area">Paradise Area</option>
+                <option value="Ohanapecosh Area">Ohanapecosh Area</option>
+                <option value="Sunrise Area">Sunrise Area</option>
+                <option value="Carbon River & Mowich Area">Carbon River & Mowich Area</option>
+            </select>
+            <button onclick="getOption()">Find Trails</button>
+            </div>
+        </div>
+        </div>
+    </main>
+        <h1> <span class="output"></span></h1>
+    <div class="results">
+            <div class="list" id="trails">
+                <% trails.forEach(trail => { %>
+                <a id="trailBoxes" href="/trails/<%=trail._id; %>"> 
+                    <div id="trailImg"><img src="<%=trail.image; %>"></div>
+                    <div id="trailName"><h4><%= trail.name %></h4></div>
+                </a>
+                 <% }) %>
+            </div>  
+    </div>
+</body>
+</html>

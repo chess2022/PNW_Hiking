@@ -5,10 +5,13 @@
     <%- include("partials/user_header.ejs") %>
     <div class="results">
             <div class="list" id="trails">
-                <% trails.forEach(trail => { %>
-                <a id="trailBoxes" href="/trails/<%=trail._id; %>"> 
-                    <div id="trailImg"><img src="<%=trail.image; %>"></div>
-                    <div id="trailName"><h4><%= trail.name %></h4></div>
+                <h2><%= user.username %>'s Saved Hikes </h2>
+                <% saved.forEach(save => { %>
+                <a id="trailBoxes" href="/user/<%=save._id; %>"> 
+                    <div id="trailImg"><img src="<%=save.image; %>"></div>
+                    <div id="trailName"><h4><%= save.name %></h4></div>
+                    <div id="trailNotes"><h4><%= save.note %></h4></div>
+                    <button id="addNote">Add note</button>
                 </a>
                  <% }) %>
             </div>  

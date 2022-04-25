@@ -1,6 +1,8 @@
 const express = require("express");
 const Trail = require("../models/trail");
 const trailRouter = express.Router();
+const Saved = require("../models/userSaved");
+const User = require("../models/user");
 
 
 
@@ -20,13 +22,15 @@ trailRouter.get("/", (req, res) => {
     });
 });
 
+
+
+
 // Show route - trail detail
 trailRouter.get("/:id", (req, res) => {
     Trail.findById(req.params.id, (err, trail) => {
       res.render("details.ejs", { trail });
     });
 });
-
 
 
 // Exports

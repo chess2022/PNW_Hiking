@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/user_header.ejs") %>
+    <div class="trailDetail">
+        <div class="info">
+            <h2><%= save.name %></h2>
+            <h3><%= save.location %> </h3>
+            <p><%= save.description %> </p>
+            <form action="/user/<%=save.id %>?_method=PUT" method="POST">
+                Note: <input id="note" type="text" name="note" value="<%= save.note %>" />
+                <input type="submit" name="" value="Save" />
+            </form>
+            <form action="/user/<%=save._id; %>?_method=DELETE" method="POST">
+                <i class="fa-solid fa-heart-circle-minus"></i><input type="submit" value="Remove from Favorites">
+            </form>
+
+        </div>
+        <div class="map">
+            <img id="map" src="<%= save.map %>">
+        </div>
+        <div class="largeImg">
+            <img id="trailImg" src="<%=save.image%>">
+            <h5><%= save.imageDescription %> </h5>
+        </div>
+        <div class="directions">
+            <h3>TRAILHEAD</h3><p><%= save.trailhead %> </p>
+            <h4><%= save.length %> </h4>
+            <h4>Approximate hike time: <%= save.time %></h4>
+        </div>
+    </div>
+    <div>
+        <form action="/dashboard/<%=save.id %>?_method=PUT" method="POST">
+            Note: <input id="note" type="text" name="note" value="<%= save.note %>" />
+        <input type="submit" name="" value="Save" />
+        </form>
+    </div> 
+
+            <!-- The Modal -->
+            <div id="mapModal" class="modal1">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="mapLrg" src="<%= trail.map %>"></div>
+                <!-- The Modal -->
+            <div id="imgModal" class="modal2">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="trailImgLrg" src="<%= trail.image %>">
+            <div id="caption"><%= trail.imageDescription %></div></div>
+
+</body>
+</html>
