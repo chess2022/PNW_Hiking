@@ -51,7 +51,7 @@ router.post("/login", (req, res) => {
     req.session.loggedIn = true;
     req.session.username = username;
     // redirect to home - home checks for login to see dashboard
-    res.redirect("/user/trails");
+    res.redirect("/user/hikes");
   });
 });
 
@@ -62,19 +62,47 @@ router.get("/logout", (req, res) => {
   });
 });
 
+// User dashboard
+router.get("/dashboard", (req, res) => {
+    // Saved.find({}, (err, allSaved) => {
+      res.render("dashboard.ejs", User);
+    // });
+})
+
 // Index route for logged in users - GET
-router.get("/trails", (req, res) => {
+router.get("/hikes", (req, res) => {
     Trail.find({}, (err, allTrails) => {
-      res.render("index2.ejs", { trails: allTrails });
-    });
+      if (req.session.loggedIn) {
+      res.render("index2.ejs", {
+      currentUser: req.session.username, trails: allTrails
+      });
+    }});
 });
 
-router.put("/:id", (req, res) => {
-  let savedTrail = { ...Trail[req.params.id] };
-  savedTrail.username = User[req.params.username];
-  Trail[req.params.id] = savedTrail;
-  res.redirect("/user/dashboard/");
-});
+router.post("/dashboard", (req, res) => {
+  Saved.create(
+    savedTrail.username = req.session.currentUser,   
+    savedTrail.name = req.body.name,
+    savedTrail.location = req.body.location,
+    savedTrail.trailhead = req.body.trailhead,
+    savedTrail.description = req.body.description,
+    savedTrail.length = req.body.length,
+    savedTrail.time = req.body.time,
+    savedTrail.image = req.body.image,
+    savedTrail.imageDescription = req.body.imageDescription,
+    savedTrail.map = req.body.map,
+    savedTrail.note = null, (err, savedTrail) => {
+    res.redirect("user/dashboard");
+    });
+})
+
+router.get("/hikes/:id", (req, res) => {
+    Trail.findById(req.params.id, (err, trail) => {
+      res.render("details2.ejs", { trail });
+    });
+})
+
+
 
 
 

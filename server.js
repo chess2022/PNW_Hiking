@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const hikesController = require("./controllers/hikes");
+const userRouter = require("./controllers/user");
 const app = express();
 const morgan = require("morgan");
 const session = require("express-session");
@@ -32,18 +33,11 @@ app.use(
 
 // Routes / Controllers
 
-const UserRouter = require("./controllers/user")
-app.use('/user', UserRouter)
+app.use('/user', userRouter)
 
 
 app.get("/", (req, res) => {
-  if (req.session.loggedIn) {
-    res.render("dashboard.ejs", {
-      currentUser: req.session.username,
-    });
-  } else {
     res.render("index.ejs");
-  }
 });
 
 app.use("/trails", hikesController)

@@ -12,7 +12,6 @@ const userSavedSchema = new mongoose.Schema({
     imageDescription: { type: String, required: false },
     map: {type: String, required: false},
     note: { type: String, required: false },
-    completed: { Boolean },
 });
 
 const Saved = mongoose.model("Saved", userSavedSchema);
