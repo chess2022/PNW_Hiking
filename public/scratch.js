@@ -37,3 +37,17 @@ Saved.create(req.body, (err, savedTrail) => {
   res.redirect("user/dashboard");
 
 
+  Saved.create(
+    savedTrail.username = req.session.currentUser,   
+    savedTrail.name = req.body.name,
+    savedTrail.location = req.body.location,
+    savedTrail.trailhead = req.body.trailhead,
+    savedTrail.description = req.body.description,
+    savedTrail.length = req.body.length,
+    savedTrail.time = req.body.time,
+    savedTrail.image = req.body.image,
+    savedTrail.imageDescription = req.body.imageDescription,
+    savedTrail.map = req.body.map,
+    savedTrail.note = null, (err, savedTrail) => {
+
+

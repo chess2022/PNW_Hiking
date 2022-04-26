@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/user");
 const Saved = require("../models/userSaved");
 const Trail = require("../models/trail");
+const { db } = require("../models/user");
 
 
 
@@ -64,9 +65,9 @@ router.get("/logout", (req, res) => {
 
 // User dashboard
 router.get("/dashboard", (req, res) => {
-    // Saved.find({}, (err, allSaved) => {
-      res.render("dashboard.ejs", User);
-    // });
+    Saved.find({}, (err, allSaved) => {
+      res.render("dashboard.ejs", {currentUser: req.session.username});
+    });
 })
 
 // Index route for logged in users - GET
@@ -79,22 +80,23 @@ router.get("/hikes", (req, res) => {
     }});
 });
 
-router.post("/dashboard", (req, res) => {
-  Saved.create(
-    savedTrail.username = req.session.currentUser,   
-    savedTrail.name = req.body.name,
-    savedTrail.location = req.body.location,
-    savedTrail.trailhead = req.body.trailhead,
-    savedTrail.description = req.body.description,
-    savedTrail.length = req.body.length,
-    savedTrail.time = req.body.time,
-    savedTrail.image = req.body.image,
-    savedTrail.imageDescription = req.body.imageDescription,
-    savedTrail.map = req.body.map,
-    savedTrail.note = null, (err, savedTrail) => {
-    res.redirect("user/dashboard");
-    });
-})
+router.post("/dashboard", async(req, res) => {
+    const savedTrail = {
+       username: req.session.username,
+       name: req.body.name,
+       location: req.body.location,
+       trailhead: req.body.trailhead,
+       description: req.body.description,
+       length: req.body.length,
+       time: req.body.time,
+       image: req.body.image,
+       imageDescription: req.body.imageDescription,
+       map: req.body.map,
+       note: null,
+     };
+    db.collection("Saved").insertOne(savedTrail);
+    res.redirect("/user/dashboard");
+});
 
 router.get("/hikes/:id", (req, res) => {
     Trail.findById(req.params.id, (err, trail) => {

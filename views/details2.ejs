@@ -8,7 +8,7 @@
             <h2><%= trail.name %></h2>
             <h3><%= trail.location %> </h3>
             <p><%= trail.description %> </p>
-            <form action="/dashboard?_method=PUT"  method="POST"><i class="fa-solid fa-heart-circle-plus"></i><input type="submit" value="Save Trail"></input></form>
+            <form action="/user/dashboard"  method="POST"><i class="fa-solid fa-heart-circle-plus"></i><input type="submit" value="Save Trail"></input></form>
         </div>
         <div class="map">
             <img id="map" src="<%= trail.map %>">

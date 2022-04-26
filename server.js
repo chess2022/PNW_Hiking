@@ -20,6 +20,7 @@ app.use(methodOverride ("_method"));
 app.use(express.urlencoded({extended: true})); // parses url encoded bodies
 app.use(flash());
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Session middleware
 app.use(
