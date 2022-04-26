@@ -112,3 +112,19 @@ router.get("/dashboard/:id", async (req, res) => {
     // $button.on("click", () => {
 
     document.getElementById("trails").style.display = "grid";
+
+
+        <!-- <h1> <span class="output"></span></h1>
+    <div class="results">
+            <div class="list" id="trails">
+                <% trails.forEach(trail => { %>
+                <a id="trailBoxes" href="/trails/<%=trail._id; %>"> 
+                    <div id="trailImg"><img src="<%=trail.image; %>"></div>
+                    <div id="trailName"><h4><%= trail.name %></h4></div>
+                </a>
+                 <% }) %>
+            </div>  
+    </div> -->
+
+    <button onclick="getOption()"></button>
+

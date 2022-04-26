@@ -17,10 +17,18 @@ trailRouter.get("/trailSeed", (req, res) => {
 
 // Index route - show main page
 trailRouter.get("/", (req, res) => {
-    Trail.find({}, (err, allTrails) => {
-      res.render("index.ejs", { trails: allTrails });
-    });
-})
+    res.render("index.ejs");
+  });
+
+
+// Results from Index route search
+trailRouter.get("/results", async (req, res) => {
+  const { locations } = req.query;
+  Trail.find({ $text: { $options: locations } }, (err, trail) => {
+    console.log(trail)
+    res.render("results.ejs", { trail });
+  });
+});
 
 
 
