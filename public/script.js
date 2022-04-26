@@ -7,6 +7,13 @@ function hamburgerMenu() {
   }
 }
 
+$(".oops").on("click", function () {
+  $(".custom-model-main").addClass("model-open");
+});
+$(".close-btn, .bg-overlay").click(function () {
+  $(".custom-model-main").removeClass("model-open");
+});
+
 // // When the user scrolls the page, execute myFunction
 // window.onscroll = function() {myFunction()};
 

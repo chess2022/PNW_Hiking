@@ -50,4 +50,44 @@ Saved.create(req.body, (err, savedTrail) => {
     savedTrail.map = req.body.map,
     savedTrail.note = null, (err, savedTrail) => {
 
+router.post("/dashboard", async (req, res) => {
+	  Saved.create(req.body, (err, savedTrail) => {
+    res.redirect("/user/dashboard")
+  });
+});
 
+
+
+    Saved.create(savedTrail, (error, Saved) => {
+      console.log(error)
+      res.redirect("/user/dashboard");
+    });
+
+        db.collection("Saved").insertOne(savedTrail);
+    res.redirect("/user/dashboard");
+
+
+router.get("/dashboard/:id", async (req, res) => {
+    Trail.findById(req.params.id,(err, trail) => {
+      console.log(trail);
+      // savedTrail = {
+      //   username: req.session.username,
+      //   name: trail.name,
+      //   location: trail.location,
+      //   trailhead: trail.trailhead,
+      //   description: trail.description,
+      //   length: trail.length,
+      //   time: trail.time,
+      //   image: trail.image,
+      //   imageDescription: trail.imageDescription,
+      //   map: trail.map,
+      //   note: null,
+      // };
+      // Saved.create(savedTrail, (error, Saved) => {
+      //   console.log(error);
+      //   res.redirect("/user/dashboard");
+      // });
+})
+})
+
+            <!-- <a href="/user/hikes/:id" ><button class="saveMe">Save Trail</button></a> -->

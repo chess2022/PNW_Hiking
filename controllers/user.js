@@ -59,20 +59,20 @@ router.post("/login", (req, res) => {
 // end session (logout) uses express session route to delete that session ID and redirect back home
 router.get("/logout", (req, res) => {
   req.session.destroy((err) => {
-    res.redirect("/");
+    res.redirect("/trails");
   });
 });
 
 // User dashboard
 router.get("/dashboard", (req, res) => {
-    Saved.find({}, (err, allSaved) => {
-      res.render("dashboard.ejs", {currentUser: req.session.username});
+    Saved.find({}, async (err, allSaved) => {
+      res.render("dashboard.ejs", {allSaved, currentUser: req.session.username});
     });
 })
 
 // Index route for logged in users - GET
 router.get("/hikes", (req, res) => {
-    Trail.find({}, (err, allTrails) => {
+    Trail.find({}, async (err, allTrails) => {
       if (req.session.loggedIn) {
       res.render("index2.ejs", {
       currentUser: req.session.username, trails: allTrails
@@ -80,23 +80,51 @@ router.get("/hikes", (req, res) => {
     }});
 });
 
-router.post("/dashboard", async(req, res) => {
-    const savedTrail = {
-       username: req.session.username,
-       name: req.body.name,
-       location: req.body.location,
-       trailhead: req.body.trailhead,
-       description: req.body.description,
-       length: req.body.length,
-       time: req.body.time,
-       image: req.body.image,
-       imageDescription: req.body.imageDescription,
-       map: req.body.map,
-       note: null,
-     };
-    db.collection("Saved").insertOne(savedTrail);
-    res.redirect("/user/dashboard");
-});
+// router.post("/hikes/:id", async(req, res) => {
+//     Trail.findById(req.params.id,(err, trail) => {
+//     const savedTrail = {
+//       username: req.session.username,
+//       name: req.body.name,
+//       location: req.body.location,
+//       trailhead: req.body.trailhead,
+//       description: req.body.description,
+//       length: req.body.length,
+//       time: req.body.time,
+//       image: req.body.image,
+//       imageDescription: req.body.imageDescription,
+//       map: req.body.map,
+//       note: null,
+//     };
+//     Saved.create(savedTrail, (error, saved) => {
+//       console.log(error);
+//       res.redirect("/user/dashboard");
+//     });
+// });
+// });
+
+router.get("/dashboard/:id", async (req, res) => {
+    Trail.findById(req.params.id,(err, trail) => {
+      console.log(trail);
+        savedTrail = {
+          username: req.session.username,
+          name: trail.name,
+          location: trail.location,
+          trailhead: trail.trailhead,
+          description: trail.description,
+          length: trail.length,
+          time: trail.time,
+          image: trail.image,
+          imageDescription: trail.imageDescription,
+          map: trail.map,
+          note: null,
+        };
+        Saved.create(savedTrail, (error, Saved) => {
+          console.log(error);
+          res.redirect("/user/dashboard");
+        });
+    })
+})
+
 
 router.get("/hikes/:id", (req, res) => {
     Trail.findById(req.params.id, (err, trail) => {

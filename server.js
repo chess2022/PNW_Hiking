@@ -32,10 +32,17 @@ app.use(
   })
 )
 
+app.use("/user", userRouter);
+
+// app.use((req, res) => {
+//   if (req.session.loggedIn) {
+//     next();
+//   } else {
+//     res.redirect("/trails");
+//   }
+// });
+
 // Routes / Controllers
-
-app.use('/user', userRouter)
-
 
 app.get("/", (req, res) => {
     res.render("index.ejs");

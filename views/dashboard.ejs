@@ -6,7 +6,7 @@
     <div class="results">
             <div class="list" id="trails">
                 <h2><%= currentUser %>'s Saved Hikes </h2>
-                <% saved.forEach(save => { %>
+                <% allSaved.forEach(save => { %>
                 <a id="trailBoxes" href="/user/<%=save._id; %>"> 
                     <div id="trailImg"><img src="<%=save.image; %>"></div>
                     <div id="trailName"><h4><%= save.name %></h4></div>
