@@ -8,8 +8,14 @@
             <h2><%= trail.name %></h2>
             <h3><%= trail.location %> </h3>
             <p><%= trail.description %> </p>
-            <!-- <form action="/user/dashboard"  method="POST"><i class="fa-solid fa-heart-circle-plus"></i><input type="submit" value="Save Trail"></input></form> -->
-            <a href="/user/dashboard/:id" ><button class="saveMe">Save Trail</button></a>
+            <div id="actions">
+                <a href="/user/hikes/<%=trail._id %>/edit"><button id="edit">EDIT DETAILS</button></a><br><br>
+                <form action="/user/hikes/<%=trail._id; %>?_method=DELETE" method="POST">
+                <button id="delete" type="submit" value="DELETE">DELETE TRAIL</button>
+                </form>
+            </div>
+            <!-- <form action="/user/hikes/:id"  method="POST"><i class="fa-solid fa-heart-circle-plus"></i><input type="submit" value="Save Trail"></input></form> -->
+            <!-- <a href="/user/dashboard/:id" ><button class="saveMe">Save Trail</button></a> -->
         </div>
         <div class="map">
             <img id="map" src="<%= trail.map %>">
@@ -25,19 +31,6 @@
         </div>
 
     </div>
-            <!-- The Modal -->
-            <div id="mapModal" class="modal1">
-            <!-- The Close Button -->
-            <span class="close">&times;</span>
-            <!-- Modal Content (The Image) -->
-            <img class="modal-content" id="mapLrg" src="<%= trail.map %>"></div>
-                <!-- The Modal -->
-            <div id="imgModal" class="modal2">
-            <!-- The Close Button -->
-            <span class="close">&times;</span>
-            <!-- Modal Content (The Image) -->
-            <img class="modal-content" id="trailImgLrg" src="<%= trail.image %>">
-            <div id="caption"><%= trail.imageDescription %></div></div>
 
 </body>
 </html>

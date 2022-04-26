@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/user_header.ejs") %>
+    <form action="/user/hikes/<%= index %>?_method=PUT" method="post">
+    <div class="trailDetail">
+        <div class="info">
+            <h2><input type="text" name="name" placeholder="<%= trail.name %>"></h2>
+            <h3><input type="text" name="location" placeholder="<%= trail.location %>"></h3>
+            <textarea class="textBox" type="text" wrap="soft" name="description" placeholder="<%= trail.description %>"></textarea><br><br>
+            <a href="/user/hikes/<%=trail._id %>"><input id="save" type="submit" form="updateFlower" value="UPDATE"></a>
+        </div>
+        <div class="map">
+            <img id="map" src="<%= trail.map %>">
+        </div>
+        <div class="largeImg">
+            <img id="trailImg" src="<%=trail.image%>">
+            <h5><%= trail.imageDescription %> </h5>
+        </div>
+        <div class="directions">
+            <h3>TRAILHEAD</h3><textarea type="text" wrap="soft" class="textBox" name="trailhead" placeholder="<%= trail.trailhead %>"></textarea>
+            <h4><input type="text" name="length" placeholder="<%= trail.length %>"></h4>
+            <h4>Approximate hike time: <input type="text" name="time" placeholder="<%= trail.time %>"></h4>
+        </div>
+    </div>
+    </form>
+
+</body>
+</html>

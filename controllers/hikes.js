@@ -17,10 +17,10 @@ trailRouter.get("/trailSeed", (req, res) => {
 
 // Index route - show main page
 trailRouter.get("/", (req, res) => {
-    Trail.find({}, (err, allTrails) => {    
-    res.render("index.ejs", { trails: allTrails });
+    Trail.find({}, (err, allTrails) => {
+      res.render("index.ejs", { trails: allTrails });
     });
-});
+})
 
 
 

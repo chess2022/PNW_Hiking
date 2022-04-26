@@ -6,8 +6,6 @@ const Trail = require("../models/trail");
 const { db } = require("../models/user");
 
 
-
-
 const router = express.Router();
 
 // signup page - GET
@@ -82,18 +80,9 @@ router.get("/hikes", (req, res) => {
 
 // router.post("/hikes/:id", async(req, res) => {
 //     Trail.findById(req.params.id,(err, trail) => {
-//     const savedTrail = {
-//       username: req.session.username,
-//       name: req.body.name,
-//       location: req.body.location,
-//       trailhead: req.body.trailhead,
-//       description: req.body.description,
-//       length: req.body.length,
-//       time: req.body.time,
-//       image: req.body.image,
-//       imageDescription: req.body.imageDescription,
-//       map: req.body.map,
-//       note: null,
+//     const savedTrail = {...Trail[_id],
+//           username: req.session.username,
+//           note: null,
 //     };
 //     Saved.create(savedTrail, (error, saved) => {
 //       console.log(error);
@@ -102,34 +91,63 @@ router.get("/hikes", (req, res) => {
 // });
 // });
 
-router.get("/dashboard/:id", async (req, res) => {
-    Trail.findById(req.params.id,(err, trail) => {
-      console.log(trail);
-        savedTrail = {
-          username: req.session.username,
-          name: trail.name,
-          location: trail.location,
-          trailhead: trail.trailhead,
-          description: trail.description,
-          length: trail.length,
-          time: trail.time,
-          image: trail.image,
-          imageDescription: trail.imageDescription,
-          map: trail.map,
-          note: null,
-        };
-        Saved.create(savedTrail, (error, Saved) => {
-          console.log(error);
-          res.redirect("/user/dashboard");
-        });
-    })
-})
+// router.get("/dashboard/:id", async (req, res) => {
+//     Trail.findById(req.params.id,(err, trail) => {
+//       console.log(trail);
+//         savedTrail = {
+//           username: req.session.username,
+//           name: trail.name,
+//           location: trail.location,
+//           trailhead: trail.trailhead,
+//           description: trail.description,
+//           length: trail.length,
+//           time: trail.time,
+//           image: trail.image,
+//           imageDescription: trail.imageDescription,
+//           map: trail.map,
+//           note: null,
+//         };
+//       if (req.session.loggedIn) {
+//         Saved.create(savedTrail, (error, Saved) => {
+//           console.log(error);
+//           res.redirect("/user/dashboard");
+//         });
+//       }
+// })
+// })
 
+// Delete
+router.delete("/hikes/:id", (req, res) => {
+    if (req.session.loggedIn) {
+    Trail.findByIdAndDelete(req.params.id, (err, trail) => {
+      res.redirect("/hikes", { trail });
+      });
+    }
+});
+
+// Update to data file
+router.put("/hikes/:id", (req, res) => {
+    Trail.findByIdAndUpdate(req.params.id, req.body, (err, updatedTrail) => {
+      if (err) return res.send(err);
+      res.redirect(`/hikes/${req.params.id}`);
+    });
+  });
+
+// Edit show page
+router.get("/hikes/:id/edit", (req, res) => {
+  Trail.findById(req.params.id, (err, trail) => {
+    res.render("edit.ejs", { trail, index: req.params.id });
+  });
+});
+
+// User Show Route
 
 router.get("/hikes/:id", (req, res) => {
     Trail.findById(req.params.id, (err, trail) => {
+      if (req.session.loggedIn) {
       res.render("details2.ejs", { trail });
-    });
+      };
+    })
 })
 
 

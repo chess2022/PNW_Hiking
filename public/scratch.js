@@ -91,3 +91,24 @@ router.get("/dashboard/:id", async (req, res) => {
 })
 
             <!-- <a href="/user/hikes/:id" ><button class="saveMe">Save Trail</button></a> -->
+
+            <!-- The Modal -->
+            <div id="mapModal" class="modal1">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="mapLrg" src="<%= trail.map %>"></div>
+                <!-- The Modal -->
+            <div id="imgModal" class="modal2">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="trailImgLrg" src="<%= trail.image %>">
+            <div id="caption"><%= trail.imageDescription %></div></div>
+
+
+
+    // let value = $locations.val();
+    // $button.on("click", () => {
+
+    document.getElementById("trails").style.display = "grid";
