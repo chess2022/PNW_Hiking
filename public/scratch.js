@@ -128,3 +128,27 @@ router.get("/dashboard/:id", async (req, res) => {
 
     <button onclick="getOption()"></button>
 
+// router.get("/dashboard/:id", async (req, res) => {
+//     Trail.findById(req.params.id,(err, trail) => {
+//       console.log(trail);
+//         savedTrail = {
+//           username: req.session.username,
+//           name: trail.name,
+//           location: trail.location,
+//           trailhead: trail.trailhead,
+//           description: trail.description,
+//           length: trail.length,
+//           time: trail.time,
+//           image: trail.image,
+//           imageDescription: trail.imageDescription,
+//           map: trail.map,
+//           note: null,
+//         };
+//       if (req.session.loggedIn) {
+//         Saved.create(savedTrail, (error, Saved) => {
+//           console.log(error);
+//           res.redirect("/user/dashboard");
+//         });
+//       }
+// })
+// })

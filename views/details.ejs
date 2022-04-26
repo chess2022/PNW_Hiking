@@ -8,7 +8,20 @@
             <h2><%= trail.name %></h2>
             <h3><%= trail.location %> </h3>
             <p><%= trail.description %> </p>
-        </div>
+            <i class="fa-solid fa-heart-circle-plus"></i> <button class="oops" Save Trail>Save Trail</button>
+            <div class="custom-model-main">
+                <div class="custom-model-inner">
+                    <div class="close-btn">×</div>
+                    <div class="custom-model-wrap">
+                        <div class="pop-up-content-wrap">
+                            <h2>Oops!</h2>
+                            <p>Please log in or create an account to save your favorite trails.</p>
+                        </div>
+                    </div>
+                </div>
+            <div class="bg-overlay"></div>
+            </div>
+           </div>
         <div class="map">
             <img id="map" src="<%= trail.map %>">
         </div>

@@ -4,6 +4,7 @@ const User = require("../models/user");
 const Saved = require("../models/userSaved");
 const Trail = require("../models/trail");
 const { db } = require("../models/user");
+const req = require("express/lib/request");
 
 
 const router = express.Router();
@@ -77,44 +78,36 @@ router.get("/hikes", (req, res) => {
       });
     }});
 });
+// Save a trail to a new collection LOL This is a dirty way to do it but it works
+router.post("/hikes/:id", async(req, res) => {
+    let savedTrail = { ...Trail[req.params.id]};
+          savedTrail.username = req.session.username,
+          savedTrail.name = req.body.name,
+          savedTrail.location = req.body.location,
+          savedTrail.trailhead = req.body.trailhead,
+          savedTrail.description = req.body.description,
+          savedTrail.length = req.body.length,
+          savedTrail.time = req.body.time,
+          savedTrail.image = req.body.image,
+          savedTrail.imageDescription = req.body.imageDescription,
+          savedTrail.map = req.body.map,
+          savedTrail.note = null,
+    Trail[req.params.id] = savedTrail
+    Saved.create(savedTrail, (error, saved) => {
+      console.log(error);
+      res.redirect("/user/dashboard");
+    });
+})
 
-// router.post("/hikes/:id", async(req, res) => {
-//     Trail.findById(req.params.id,(err, trail) => {
-//     const savedTrail = {...Trail[_id],
-//           username: req.session.username,
-//           note: null,
-//     };
-//     Saved.create(savedTrail, (error, saved) => {
-//       console.log(error);
-//       res.redirect("/user/dashboard");
-//     });
-// });
-// });
+// Delete from saved hikes route
+router.delete("/hikes/:id", (req, res) => {
+  if (req.session.loggedIn) {
+    Trail.findByIdAndDelete(req.params.id, (err, trail) => {
+      res.redirect("/hikes", { trail });
+    });
+  }
+});
 
-// router.get("/dashboard/:id", async (req, res) => {
-//     Trail.findById(req.params.id,(err, trail) => {
-//       console.log(trail);
-//         savedTrail = {
-//           username: req.session.username,
-//           name: trail.name,
-//           location: trail.location,
-//           trailhead: trail.trailhead,
-//           description: trail.description,
-//           length: trail.length,
-//           time: trail.time,
-//           image: trail.image,
-//           imageDescription: trail.imageDescription,
-//           map: trail.map,
-//           note: null,
-//         };
-//       if (req.session.loggedIn) {
-//         Saved.create(savedTrail, (error, Saved) => {
-//           console.log(error);
-//           res.redirect("/user/dashboard");
-//         });
-//       }
-// })
-// })
 
 // Delete
 router.delete("/hikes/:id", (req, res) => {
@@ -145,7 +138,7 @@ router.get("/hikes/:id/edit", (req, res) => {
 router.get("/hikes/:id", (req, res) => {
     Trail.findById(req.params.id, (err, trail) => {
       if (req.session.loggedIn) {
-      res.render("details2.ejs", { trail });
+      res.render("details3.ejs", { trail });
       };
     })
 })
