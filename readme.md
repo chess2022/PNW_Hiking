@@ -1,5 +1,5 @@
 
-# PNW Hiking Trails
+# Hike Mount Rainier
 
 **************************************************
 
@@ -62,7 +62,6 @@ Thursday (Day 2):
 
 Friday (Day 3):
 - [X] Get index routes and basic index.ejs code done
-- [ ] Figure out how to filter results
 - [X] Get "show" route and details page done
 - [X] Create login & create user page done but maybe not routes
 
@@ -81,6 +80,7 @@ Monday (Day 6):
 - [X] More troubleshooting since I guarantee there will be something wonky that needs updating
 
 Tuesday (Day 7):
+- [X] Figure out how to filter results
 - [X] Frantically finish up anything not yet completed
 - [X] More frantic finish up and wondering why I had to make my project so difficult
 
@@ -142,9 +142,9 @@ const userSavedSchema = new mongoose.Schema({
 
 **************************************************
 
-![PNW Hiking Trails Main App](/public/images/screenshots/main.png)
-![PNW Hiking Trails Search Results](/public/images/screenshots/searchResults.png)
-![PNW Hiking Trails Detail](/public/images/screenshots/details.png)
+![Hike Mount Rainier Main App](/public/images/screenshots/main.png)
+![Hike Mount Rainier Search Results](/public/images/screenshots/searchResults.png)
+![Hike Mount Rainier Detail](/public/images/screenshots/details.png)
 
 **************************************************
 
@@ -152,9 +152,11 @@ const userSavedSchema = new mongoose.Schema({
 
 **************************************************
 
-![PNW Hiking Trails Main App](/public/images/screenshots/main.png)
-![PNW Hiking Trails Search Results](/public/images/screenshots/searchResults.png)
-![PNW Hiking Trails Detail](/public/images/screenshots/details.png)
+![Hike Mount Rainier Main App](/public/images/screenshots/index.png)
+![Hike Mount Rainier Search Results](/public/images/screenshots/results.png)
+![Hike Mount Rainier Trail Detail](/public/images/screenshots/show_details.png)
+![Hike Mount Rainier User Dashboard](/public/images/screenshots/user_dashboard.png)
+![Hike Mount Rainier Login Page](/public/images/screenshots/user_login.png)
 
 **************************************************
 
