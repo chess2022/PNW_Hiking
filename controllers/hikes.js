@@ -1,9 +1,6 @@
 const express = require("express");
 const Trail = require("../models/trail");
 const trailRouter = express.Router();
-const Saved = require("../models/userSaved");
-const User = require("../models/user");
-
 
 
 // Seed
@@ -23,12 +20,11 @@ trailRouter.get("/", (req, res) => {
 
 // Results from Index route search
 trailRouter.get("/results", async (req, res) => {
-  const { locations } = req.query;
-  Trail.aggregate([{$unwind: '$trails'}, {$match: {$location:locations}}], (err, trail) => {
-    console.log(req.query)
-    res.render("results.ejs", { trail });
-  });
+  const { location } = req.query;
+  Trail.find({ location: location }, (err, trails) => {
+    res.render("results.ejs", { trails });
 });
+})
 
 
 // Show route - trail detail

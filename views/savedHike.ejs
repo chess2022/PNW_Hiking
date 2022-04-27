@@ -11,6 +11,9 @@
             <p><%= save.description %> </p>
             <p><%= save.note %> </p>
             <a href="/user/edit/<%=save._id %>"><button id="edit">ADD NOTE</button></a><br><br>
+            <form action="/user/saved/<%=save._id; %>?_method=DELETE" method="POST">
+                <i id="heartMinus" class="fa-solid fa-heart-circle-minus"></i> <button id="delete" type="submit" value="DELETE">REMOVE FROM SAVED</button>
+            </form>
         </div>
         <div class="map">
             <img id="map" src="<%= save.map %>">

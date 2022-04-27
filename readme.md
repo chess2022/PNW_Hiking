@@ -16,7 +16,6 @@ A full-stack web application to search for and get details about local hiking tr
 - JavaScript
 - jQuery
 - Google Fonts
-- AJAX
 - Express
 - Ejs
 - Method-Override
@@ -26,7 +25,7 @@ A full-stack web application to search for and get details about local hiking tr
 
 **************************************************
 
-## Intended Routes
+## Routes
 
 **************************************************
 
@@ -51,38 +50,45 @@ A full-stack web application to search for and get details about local hiking tr
 **************************************************
 
 Wednesday (Day 1):
-- [ ] Create a Trello board
-- [ ] Set up file structure and install dependencies
-- [ ] Create a detailed readme file
+- [X] Create a Trello board
+- [X] Set up file structure and install dependencies
+- [X] Create a detailed readme file
 
 Thursday (Day 2):
-- [ ] Cry into my pillow and then shake it off and get to work (kidding, kidding)
-- [ ] Assemble data and photos to fill my database
-- [ ] Fill in database
-- [ ] Work on finishing up week 8 homework assignment
+- [X] Cry into my pillow and then shake it off and get to work (kidding, kidding)
+- [X] Assemble data and photos to fill my database
+- [X] Fill in database
+- [X] Work on finishing up week 8 homework assignment
 
 Friday (Day 3):
-- [ ] Get index routes and basic index.ejs code done
+- [X] Get index routes and basic index.ejs code done
 - [ ] Figure out how to filter results
-- [ ] Get "show" route and details page done
-- [ ] Create login & create user page done but maybe not routes
+- [X] Get "show" route and details page done
+- [X] Create login & create user page done but maybe not routes
 
 Saturday (Day 4):
-- [ ] Create dashboard page
-- [ ] Create routes for dashboard page
-- [ ] Work on weird kinks in the code and troubleshoot
+- [X] Create dashboard page
+- [X] Create routes for dashboard page
+- [X] Work on weird kinks in the code and troubleshoot
 
 Sunday (Day 5):
-- [ ] Go crazy with CSS (if not already partially done by now)
+- [X] Go crazy with CSS (if not already partially done by now)
 - [ ] Work on anything not yet completed
 - [ ] Maybe add trail maps via API call if there's enough time
 
 Monday (Day 6):
-- [ ] Work on anything not yet completed
-- [ ] More troubleshooting since I guarantee there will be something wonky that needs updating
+- [X] Work on anything not yet completed
+- [X] More troubleshooting since I guarantee there will be something wonky that needs updating
 
 Tuesday (Day 7):
-- [ ] Frantically finish up anything not yet completed
+- [X] Frantically finish up anything not yet completed
+- [X] More frantic finish up and wondering why I had to make my project so difficult
+
+Wednesday (Day 8):
+- [ ] Last minute rush to finish up
+- [ ] Present my project
+- [ ] Have a drink to celebrate being DONE
+
 
 **************************************************
 
@@ -93,12 +99,15 @@ Tuesday (Day 7):
 Hiking Trails:
 ```
 const trailSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  location: { type: String, required: true },
-  description: { type: String, required: false },
-  length: { type: Number, required: true },
-  difficulty: { type: Number, required: true },
-  img: { type: String, required: true },
+    name: { type: String, required: true },
+    location: { type: String, required: true },
+    trailhead: {type: String, require: true },
+    description: { type: String, required: false },
+    length: { type: String, required: true },
+    time: { type: String, required: true },
+    image: { type: String, required: false },
+    imageDescription: { type: String, required: false },
+    map: {type: String, required: false}
 });
 ```
 
@@ -112,21 +121,34 @@ const userSchema = new mongoose.Schema({
 
 User Saved Data:
 ```
-const trailSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  location: { type: String, required: true },
-  description: { type: String, required: false },
-  length: { type: Number, required: true },
-  difficulty: { type: Number, required: true },
-  img: { type: String, required: true },
-  note: { type: String, required: false}
-  completed: Boolean,
+const userSavedSchema = new mongoose.Schema({
+    username: { type: String, required: true },
+    name: { type: String, required: true },
+    location: { type: String, required: true },
+    trailhead: {type: String, require: true },
+    description: { type: String, required: false },
+    length: { type: String, required: true },
+    time: { type: String, required: true },
+    image: { type: String, required: false },
+    imageDescription: { type: String, required: false },
+    map: {type: String, required: false},
+    note: { type: String, required: false },
 });
 ```
 
 **************************************************
 
-## Screenshots
+## Wireframes
+
+**************************************************
+
+![PNW Hiking Trails Main App](/public/images/screenshots/main.png)
+![PNW Hiking Trails Search Results](/public/images/screenshots/searchResults.png)
+![PNW Hiking Trails Detail](/public/images/screenshots/details.png)
+
+**************************************************
+
+## Final Product
 
 **************************************************
 
@@ -140,7 +162,7 @@ const trailSchema = new mongoose.Schema({
 
 **************************************************
 
-Site url TBD
+https://mt-rainier-day-hikes.herokuapp.com/
 
 **************************************************
 

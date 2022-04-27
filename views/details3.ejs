@@ -9,7 +9,7 @@
             <h2><%= trail.name %></h2>
             <h3><%= trail.location %> </h3>
             <p><%= trail.description %> </p>
-            <i class="fa-solid fa-heart-circle-plus"></i> <input form="savedTrail" type="submit" value="Save Trail"></input>
+            <i id="heartPlus" class="fa-solid fa-heart-circle-plus"></i> <input id="saveButton" form="savedTrail" type="submit" value="Save Trail"></input>
         </div>
         <div class="map">
             <img id="map" src="<%= trail.map %>">

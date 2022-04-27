@@ -64,9 +64,10 @@ router.get("/logout", (req, res) => {
 
 // User dashboard
 router.get("/dashboard", (req, res) => {
-    Saved.find({}, async (err, allSaved) => {
-      res.render("dashboard.ejs", {allSaved, currentUser: req.session.username});
-    });
+    Saved.find({ username: req.session.username }, async (err, allSaved) => {
+      if (req.session.loggedIn) {
+      res.render("dashboard.ejs", {allSaved, currentUser: req.session.username,});
+    }});
 })
 
 // Index route for logged in users - GET
@@ -78,6 +79,17 @@ router.get("/hikes", (req, res) => {
       });
     }});
 });
+
+// User logged in search results page
+router.get("/hikes/results", (req, res) => {
+    const { location } = req.query;
+    Trail.find({ location: location }, (err, trails) => {
+      if (req.session.loggedIn) {
+      res.render("results2.ejs", { trails });
+    }});
+});
+
+
 // Save a trail to a new collection LOL This is a dirty way to do it but it works
 router.post("/hikes/:id", async(req, res) => {
     let savedTrail = { ...Trail[req.params.id]};
@@ -94,7 +106,6 @@ router.post("/hikes/:id", async(req, res) => {
           savedTrail.note = null,
     Trail[req.params.id] = savedTrail
     Saved.create(savedTrail, (error, saved) => {
-      console.log(error);
       res.redirect("/user/dashboard");
     });
 })
@@ -135,29 +146,6 @@ router.get("/edit/:id", (req, res) => {
     })
 })
 
-// // Delete
-// router.delete("/hikes/:id", (req, res) => {
-//     if (req.session.loggedIn) {
-//     Trail.findByIdAndDelete(req.params.id, (err, trail) => {
-//       res.redirect("/hikes", { trail });
-//       });
-//     }
-// });
-
-// // Update to data file
-// router.put("/hikes/:id", (req, res) => {
-//     Trail.findByIdAndUpdate(req.params.id, req.body, (err, updatedTrail) => {
-//       if (err) return res.send(err);
-//       res.redirect(`/hikes/${req.params.id}`);
-//     });
-//   });
-
-// // Edit show page
-// router.get("/hikes/:id/edit", (req, res) => {
-//   Trail.findById(req.params.id, (err, trail) => {
-//     res.render("edit.ejs", { trail, index: req.params.id });
-//   });
-// });
 
 // User Show Route
 
