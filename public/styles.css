@@ -181,6 +181,11 @@ a {
     background-color: #2e4c0f;
 }
 
+#trailNotes {
+    color:rgb(9, 68, 8);
+    font-size: 2vh;
+}
+
 /**************************************/
 /* Trail Detail Page */
 /**************************************/

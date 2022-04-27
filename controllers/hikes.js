@@ -24,8 +24,8 @@ trailRouter.get("/", (req, res) => {
 // Results from Index route search
 trailRouter.get("/results", async (req, res) => {
   const { locations } = req.query;
-  Trail.find({ $text: { $options: locations } }, (err, trail) => {
-    console.log(trail)
+  Trail.aggregate([{$unwind: '$trails'}, {$match: {$location:locations}}], (err, trail) => {
+    console.log(req.query)
     res.render("results.ejs", { trail });
   });
 });
