@@ -72,13 +72,12 @@ router.get("/dashboard", (req, res) => {
 
 // Index route for logged in users - GET
 router.get("/hikes", (req, res) => {
-    Trail.find({}, async (err, allTrails) => {
       if (req.session.loggedIn) {
-      res.render("index2.ejs", {
-      currentUser: req.session.username, trails: allTrails
-      });
-    }});
+      res.render("index2.ejs")
+    }
 });
+
+
 
 // User logged in search results page
 router.get("/hikes/results", (req, res) => {
