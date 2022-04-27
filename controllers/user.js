@@ -100,38 +100,64 @@ router.post("/hikes/:id", async(req, res) => {
 })
 
 // Delete from saved hikes route
-router.delete("/hikes/:id", (req, res) => {
+router.delete("/saved/:id", (req, res) => {
   if (req.session.loggedIn) {
-    Trail.findByIdAndDelete(req.params.id, (err, trail) => {
-      res.redirect("/hikes", { trail });
+    Saved.findByIdAndDelete(req.params.id, (err, save) => {
+      res.redirect("/user/dashboard");
     });
   }
 });
 
 
-// Delete
-router.delete("/hikes/:id", (req, res) => {
-    if (req.session.loggedIn) {
-    Trail.findByIdAndDelete(req.params.id, (err, trail) => {
-      res.redirect("/hikes", { trail });
-      });
-    }
+// Edit hike on server
+router.put("/saved/:id", (req, res) => {
+  Saved.findByIdAndUpdate(req.params.id, req.body, (err, updatedTrail) => {
+    if (err) return res.send(err);
+    res.redirect(`/user/saved/${req.params.id}`);
+  });
 });
 
-// Update to data file
-router.put("/hikes/:id", (req, res) => {
-    Trail.findByIdAndUpdate(req.params.id, req.body, (err, updatedTrail) => {
-      if (err) return res.send(err);
-      res.redirect(`/hikes/${req.params.id}`);
+
+// Saved hike show detail route
+router.get("/saved/:id", (req, res) => {
+  if (req.session.loggedIn) {
+    Saved.findById(req.params.id, (err, save) => {
+    res.render("savedHike.ejs", { save, index: req.params.id });
     });
-  });
+  }
+})
 
-// Edit show page
-router.get("/hikes/:id/edit", (req, res) => {
-  Trail.findById(req.params.id, (err, trail) => {
-    res.render("edit.ejs", { trail, index: req.params.id });
-  });
-});
+
+// Show user edit page
+router.get("/edit/:id", (req, res) => {
+    Saved.findById(req.params.id, (err, save) => {
+      res.render("savedEdit.ejs", { save, index: req.params.id });
+    })
+})
+
+// // Delete
+// router.delete("/hikes/:id", (req, res) => {
+//     if (req.session.loggedIn) {
+//     Trail.findByIdAndDelete(req.params.id, (err, trail) => {
+//       res.redirect("/hikes", { trail });
+//       });
+//     }
+// });
+
+// // Update to data file
+// router.put("/hikes/:id", (req, res) => {
+//     Trail.findByIdAndUpdate(req.params.id, req.body, (err, updatedTrail) => {
+//       if (err) return res.send(err);
+//       res.redirect(`/hikes/${req.params.id}`);
+//     });
+//   });
+
+// // Edit show page
+// router.get("/hikes/:id/edit", (req, res) => {
+//   Trail.findById(req.params.id, (err, trail) => {
+//     res.render("edit.ejs", { trail, index: req.params.id });
+//   });
+// });
 
 // User Show Route
 

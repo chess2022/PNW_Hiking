@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/user_header.ejs") %>
+
+    <div class="trailDetail">
+        <div class="info">
+            <h2><%= save.name %></h2>
+            <h3><%= save.location %> </h3>
+            <p><%= save.description %></p>
+            <p><%= save.note %> </p>
+            <form action="/user/saved/<%= index %>?_method=PUT" method="post">
+                <textarea class="textBox" type="text" wrap="soft" name="note" placeholder="<%= save.note %>"></textarea><br><br>
+                <a href="/user/saved/<%=save._id; %>"><input id="save" type="submit" value="UPDATE"></a>
+            </form>
+            <form action="/user/saved/<%=save._id; %>?_method=DELETE" method="POST">
+                <button id="delete" type="submit" value="DELETE">REMOVE FROM SAVED</button>
+            </form>
+        </div>
+        <div class="map">
+            <img id="map" src="<%= save.map %>">
+        </div>
+        <div class="largeImg">
+            <img id="trailImg" src="<%=save.image%>">
+            <h5><%= save.imageDescription %> </h5>
+        </div>
+        <div class="directions">
+            <h3>TRAILHEAD</h3><p><%= save.trailhead %> </p>
+            <h4><%= save.length %> </h4>
+            <h4>Approximate hike time: <%= save.time %></h4>
+        </div>
+
+    </div>
+</body>
+</html>
