@@ -4,7 +4,7 @@ const methodOverride = require("method-override");
 const hikesController = require("./controllers/hikes");
 const userRouter = require("./controllers/user");
 const app = express();
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")
 require("dotenv").config();
@@ -12,7 +12,7 @@ const flash = require("connect-flash");
 const cookieParser = require("cookie-parser")
 
 // middleware
-app.use(morgan('tiny')); // dev logging for routes
+// app.use(morgan('tiny')); // dev logging for routes
 app.use(express.urlencoded({ extended: true }));
 app.use("/static", express.static("public"));
 app.use(methodOverride ("_method"));
