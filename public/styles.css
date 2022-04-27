@@ -45,13 +45,11 @@ main {
 }
 
 .search {
-    /* padding-top: 150px; */
     width: 40%;
 }
 
 select, button {
     font-family: 'Raleway', sans-serif;
-
 }
 
 
@@ -133,8 +131,8 @@ h1, h2 {
     margin: auto;
     display: flex;
     justify-content: center;
-    /* width: 80%; */
-    background-color: rgb(251, 245, 238);
+    background-color: rgb(212, 212, 212);
+    min-height: 500px;
 
 }
 
@@ -188,6 +186,23 @@ a {
     font-size: 1.75vh;
     padding: 5px;
 }
+
+.searchAgain {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(237, 237, 237);
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.options2 {
+    padding-top: 25px;
+}
+
+/* .title {
+    background-color: rgb(237, 237, 237);
+} */
+
 
 /**************************************/
 /* Trail Detail Page */
@@ -305,7 +320,7 @@ label {
 }
 
 .inputBox {
-    width: 100%;
+    width: 90%;
     /* float: right; */
 }
 

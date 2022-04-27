@@ -4,7 +4,22 @@
 <body>
     <section>
     <%- include("partials/header.ejs") %>
-        <h1> <%= trails[0].location %> </h1>
+    <div class="searchAgain">
+        <div class="locationTitle"><h1> <%= trails[0].location %> </h1></div>
+        <div id="locationSearch">
+            <form class="options2" action="/trails/results" method="get">
+                <select name="location" id="locations">
+                    <option value="choose">Choose an Area</option>
+                    <option value="Longmire Area">Longmire Area</option>
+                    <option value="Paradise Area">Paradise Area</option>
+                    <option value="Ohanapecosh Area">Ohanapecosh Area</option>
+                    <option value="Sunrise Area">Sunrise Area</option>
+                    <option value="Carbon River & Mowich Area">Carbon River & Mowich Area</option>
+                </select>
+                <button>Find Trails</button>
+                </form>
+        </div>
+    </div>
     <div class="results">
             <div class="list" id="trails">
                 <% trails.forEach(trail => { %>
