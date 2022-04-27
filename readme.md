@@ -43,6 +43,16 @@ A full-stack web application to search for and get details about local hiking tr
 - put "/dashboard/:id" => sends updated note to server and renders updated dashboard
 - delete "/dashboard/:id" = deletes saved trail from user dashboard & renders updated dashboard
 
+
+**************************************************
+
+## Trello Workspace
+
+**************************************************
+
+<https://trello.com/b/wJbDYWoi/pnw-hiking-app-planning>
+
+
 **************************************************
 
 ## Project Timeline
@@ -164,7 +174,7 @@ const userSavedSchema = new mongoose.Schema({
 
 **************************************************
 
-https://mt-rainier-day-hikes.herokuapp.com/
+<https://mt-rainier-day-hikes.herokuapp.com/>
 
 **************************************************
 
