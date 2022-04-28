@@ -78,7 +78,6 @@ router.get("/hikes", (req, res) => {
 });
 
 
-
 // User logged in search results page
 router.get("/hikes/results", (req, res) => {
     const { location } = req.query;
@@ -155,13 +154,6 @@ router.get("/hikes/:id", (req, res) => {
       };
     })
 })
-
-
-
-
-
-
-
 
 
 module.exports = router;
